@@ -22,6 +22,7 @@ install:
   - cp .web-resource-cache.travis.env web-resource-cache/.env
   - cd web-resource-cache && ./bin/console doctrine:migrations:migrate --no-interaction
   - cd ..
+  - composer install
 
 script:
   - composer ci
