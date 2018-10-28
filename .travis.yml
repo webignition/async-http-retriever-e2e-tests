@@ -23,4 +23,4 @@ install:
   - cd web-resource-cache && ./bin/console doctrine:migrations:migrate --no-interaction
 
 script:
-  - echo "do nothing"
+  - composer ci
