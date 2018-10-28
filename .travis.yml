@@ -13,6 +13,7 @@ php:
 
 before_install:
   - phpenv config-add travis.php.ini
+  - cp .travis.composer.config.json ~/.composer/config.json
   - mysql -e 'CREATE DATABASE myapp_test;'
 
 install:
