@@ -17,9 +17,9 @@ before_install:
   - mysql -e 'CREATE DATABASE myapp_test;'
 
 install:
+  - cp .web-resource-cache.travis.env web-resource-cache/.env
   - chmod +x ./scripts/install-web-resource-cache.sh
   - ./scripts/install-web-resource-cache.sh
-  - cp .web-resource-cache.travis.env web-resource-cache/.env
 
 script:
   - echo "do nothing"
