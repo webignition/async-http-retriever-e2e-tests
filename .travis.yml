@@ -1,0 +1,22 @@
+sudo: false
+
+notifications:
+  email: false
+
+services:
+  - redis-server
+  - memcached
+
+language: php
+php:
+- 7.2
+
+before_install:
+  - mysql -e 'CREATE DATABASE myapp_test;'
+  - chmod +x ./bin/console
+
+install:
+  - git clone https://github.com/webignition/web-resource-cache.git
+
+script:
+  - echo "do nothing"
