@@ -19,6 +19,7 @@ before_install:
 install:
   - chmod +x ./scripts/install-web-resource-cache.sh
   - ./scripts/install-web-resource-cache.sh
+  - cp .web-resource-cache.travis.env web-resource-cache/.env
 
 script:
   - echo "do nothing"
