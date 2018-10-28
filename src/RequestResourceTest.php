@@ -64,4 +64,24 @@ class RequestResourceTest extends AbstractEndToEndTestCase
             ],
         ];
     }
+
+    public function testSuccessfulRequest()
+    {
+        $response = $this->httpClient->post(
+            self::URL,
+            [
+                'form_params' => [
+                    'url' => 'http://example.com/',
+                    'callback' => 'http://callback.localhost/',
+                ],
+            ]
+        );
+
+        $this->assertEquals(200, $response->getStatusCode());
+        $this->assertEquals('application/json', $response->getHeaderLine('content-type'));
+
+        $responseData = json_decode($response->getBody()->getContents());
+
+        $this->assertRegExp('/[a-f0-9]{32}/', $responseData);
+    }
 }
