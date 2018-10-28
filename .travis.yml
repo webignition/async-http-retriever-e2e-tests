@@ -15,7 +15,8 @@ before_install:
   - mysql -e 'CREATE DATABASE myapp_test;'
 
 install:
-  - git clone https://github.com/webignition/web-resource-cache.git
+  - chmod +x ./scripts/install-web-resource-cache.sh
+  - ./scripts/install-web-resource-cache.sh
 
 script:
   - echo "do nothing"
