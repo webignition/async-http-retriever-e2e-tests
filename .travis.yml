@@ -1,0 +1,24 @@
+sudo: false
+
+notifications:
+  email: false
+
+services:
+  - redis-server
+  - memcached
+
+language: php
+php:
+- 7.2
+
+before_install:
+  - phpenv config-add travis.php.ini
+  - cp .travis.composer.config.json ~/.composer/config.json
+  - mysql -e 'CREATE DATABASE myapp_test;'
+
+install:
+  - chmod +x ./scripts/install-web-resource-cache.sh
+  - ./scripts/install-web-resource-cache.sh
+
+script:
+  - echo "do nothing"
