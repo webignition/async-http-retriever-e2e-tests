@@ -20,7 +20,7 @@ install:
   - chmod +x ./scripts/install-web-resource-cache.sh
   - ./scripts/install-web-resource-cache.sh
   - cp .web-resource-cache.travis.env web-resource-cache/.env
-  - cd web_resource_cache && ./bin/console doctrine:migrations:migrate --no-interaction
+  - cd web-resource-cache && ./bin/console doctrine:migrations:migrate --no-interaction
 
 script:
   - echo "do nothing"
