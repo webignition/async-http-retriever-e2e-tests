@@ -12,6 +12,7 @@ php:
 - 7.2
 
 before_install:
+  - phpenv config-add travis.php.ini
   - mysql -e 'CREATE DATABASE myapp_test;'
 
 install:
